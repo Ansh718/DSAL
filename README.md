@@ -1,2 +1,5 @@
 # DSAL
-Sem 4 Data Structures and Algorithms 
+
+example :
+to access the code
+DSA1/DSA1/main.cpp
