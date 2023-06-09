@@ -20,7 +20,7 @@ struct Student
 // Function to add student information to the file
 void addStudent()
 {
-    ofstream file("Rucha.txt", ios::binary | ios::app);
+    ofstream file("test.txt", ios::binary | ios::app);
     if (!file)
     {
         cout << "Error opening file!";
@@ -48,7 +48,7 @@ void addStudent()
 // Function to display student information based on roll number
 void displayStudent(int rollNumber)
 {
-    ifstream file("Rucha.txt", ios::binary);
+    ifstream file("test.txt", ios::binary);
     if (!file)
     {
         cout << "Error opening file!";
@@ -82,7 +82,7 @@ void displayStudent(int rollNumber)
 // Function to delete student information based on roll number
 void deleteStudent(int rollNumber)
 {
-    ifstream file("Rucha.txt", ios::binary);
+    ifstream file("test.txt", ios::binary);
     if (!file)
     {
         cout << "Error opening file!";
@@ -115,7 +115,7 @@ void deleteStudent(int rollNumber)
     file.close();
     tempFile.close();
 
-    remove("Rucha.txt");
+    remove("test.txt");
     rename("temp.txt", "students.dat");
 
     if (found)
@@ -130,7 +130,7 @@ void deleteStudent(int rollNumber)
 
 void searchStudent(int rollNumber)
 {
-    ifstream file("Rucha.txt", ios::binary);
+    ifstream file("test.txt", ios::binary);
     if (!file)
     {
         cout << "Error opening file!";
@@ -196,178 +196,4 @@ int main()
     } while (choice != 4);
 
     return 0;
-//}
-//#include<iostream>
-//#include<string>
-//#include<iomanip>
-//#include<fstream>
-//using namespace std;
-//
-//class student
-//{
-//private:
-//    int rollno;
-//    char div;
-//
-//    string name,address;
-//public:
-//
-//    student()
-//    {
-//        rollno = 0;
-//        div = ' ';
-//        name = " ";
-//        address = " ";
-//    }
-//
-//    void input()
-//    {
-//        cout<<"\nEnter roll no of the student : ";
-//        cin>>rollno;
-//        cout<<"\nEnter the name of the student : ";
-//        cin>>name;
-//        cout<<"\nenter the division of the division :";
-//        cin>>div;
-//        cout<<"\nEnter the address of the student : ";
-//        getline(cin>>ws , address);
-//    }
-//
-//    void display()
-//    {
-//        cout<<"\n"<<rollno<<setw(15)<<name<<setw(10)<<div<<setw(10)<<address;
-//    }
-//
-//    int getrollno()
-//    {
-//        return rollno;
-//    }
-//
-//};
-//
-//class seq_file
-//{
-//    fstream file;
-//    student obj;
-//
-//    public:
-//
-//    void create()
-//    {
-//        int ch = 0;
-//        file.open("student_data.txt", ios::out | ios::binary);
-//        while(ch == 0)
-//        {
-//            obj.input();
-//            file.write((char *)&obj , sizeof(obj));
-//            cout<<"\nWnat to enter more entries : ";
-//            cin>>ch;
-//        }
-//        file.close();
-//    }
-//
-//    void add()
-//    {
-//         int ch = 0;
-//        file.open("student_data.txt", ios::app | ios::binary);
-//        while(ch == 0)
-//        {
-//            obj.input();
-//            file.write((char *)&obj , sizeof(obj));
-//            cout<<"\nWnat to enter more entries : ";
-//            cin>>ch;
-//        }
-//        file.close();
-//    }
-//
-//    void print()
-//    {
-//        file.open("student_data.txt" , ios::in | ios::binary);
-//        if(!file)
-//        {
-//            cout<<"file nahi hai re baba";
-//        }
-//        else
-//        {
-//            cout<<"\n"<<"rollno"<<setw(15)<<"name"<<setw(10)<<"div"<<setw(10)<<"address";
-//            file.read((char *)&obj , sizeof(obj));
-//            while(!file.eof())
-//            {
-//                obj.display();
-//                cout<<endl;
-//                file.read((char *)&obj , sizeof(obj));
-//            }
-//        }
-//        file.close();
-//    }
-//
-//    void search()
-//    {
-//        int n,f1 = 0;
-//        cout<<"Enter the roo number ot be searched : ";
-//        cin>>n;
-//        file.open("student_data.txt" , ios::in | ios::binary);
-//        if(!file)
-//        {
-//            cout<<"File nahi hai re baba";
-//            exit(0);
-//        }
-//        else
-//        {
-//            file.read((char*)&obj , sizeof(obj));
-//            while(!file.eof())
-//            {
-//                if(n == obj.getrollno())
-//                {
-//                    obj.display();
-//                    f1 = 1;
-//                    break;
-//                }
-//                else
-//                {
-//                    file.read((char*)&obj , sizeof(obj));
-//                }
-//            }
-//            if(f1 ==0)
-//            {
-//                cout<<"Record not found.";
-//            }
-//        }
-//
-//    }
-//};
-//
-//int main()
-//{
-//    student obj;
-//    int ch;
-//    char choice;
-//    seq_file sobj;
-//    do
-//    {
-//
-//        cout << "\n MENU! \n";
-//        cout << "1.Create\n2.Append\n3.Display\n4.Search\nEnter choice";
-//        cin >> ch;
-//        switch (ch)
-//        {
-//        case 1:
-//            sobj.create();
-//            break;
-//        case 2:
-//            sobj.add();
-//            break;
-//        case 3:
-//            sobj.print();
-//            break;
-//        case 4:
-//            sobj.search();
-//            break;
-//        default:
-//            cout << "Invalid choice!";
-//            break;
-//        }
-//        cout << "\nDo you want to continue?(y/n): ";
-//        cin >> choice;
-//    } while (choice == 'y' || choice == 'Y');
-//    return 0;
-//}
+}
